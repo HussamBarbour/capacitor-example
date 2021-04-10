@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'accessibility',
+    loadChildren: () => import('./accessibility/accessibility.module').then( m => m.AccessibilityPageModule)
+  },
 ];
 
 @NgModule({

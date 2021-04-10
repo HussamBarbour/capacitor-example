@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>accessibility</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center ion-padding">
+  Check Screen Reader :
+  <ion-text *ngIf="status" color="success">
+    <h4>Voice over is enabled</h4>
+  </ion-text>
+  <ion-text *ngIf="!status" color="danger">
+    <h4>Voice over is disabled</h4>
+  </ion-text>
+
+  <ion-button expand="block" (click)="isVoiceOverEnabled()" color="primary">Check Screen Reader</ion-button>
+  <ion-button expand="block" (click)="speak()" color="primary">Speek</ion-button>
+</ion-content>
