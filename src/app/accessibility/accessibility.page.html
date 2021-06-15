@@ -17,5 +17,11 @@
   </ion-text>
 
   <ion-button expand="block" (click)="isVoiceOverEnabled()" color="primary">Check Screen Reader</ion-button>
+  <ion-list lines="full" class="ion-no-margin">
+    <ion-item>
+      <ion-input [value]="speak_options.value" (ionInput)="setSpeakValue($event.target.value)" placeholder="Enter Text to speak"></ion-input>
+    </ion-item>
+  </ion-list>
+
   <ion-button expand="block" (click)="speak()" color="primary">Speek</ion-button>
 </ion-content>

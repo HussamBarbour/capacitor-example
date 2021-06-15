@@ -1,10 +1,8 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { Plugins } from '@capacitor/core';
-import { Platform,NavController } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 
-const { Accessibility, Modals } = Plugins;
-import { ScreenReader } from '@capacitor/screen-reader';
+import { ScreenReader,SpeakOptions,ScreenReaderState } from '@capacitor/screen-reader';
 
 @Component({
   selector: 'app-accessibility',
@@ -15,6 +13,10 @@ export class AccessibilityPage implements OnInit {
 
   status: boolean;
   console:string;
+  speak_options : SpeakOptions = {
+    value : 'Hello World!',
+    language : 'en'
+  }
   constructor(private platform: Platform) { }
 
   ngOnInit() {
@@ -23,7 +25,7 @@ export class AccessibilityPage implements OnInit {
   async isVoiceOverEnabled() {
     if (this.platform.is('capacitor')){
         const { value } = await ScreenReader.isEnabled();
-        alert('Voice over enabled? ' + value);
+        this.status = value;
     } else {
       alert('Feature not available in your platform')
     }
@@ -31,6 +33,9 @@ export class AccessibilityPage implements OnInit {
   async speak() {
 
 
-    await ScreenReader.speak({ value: 'lulu ' });
+    await ScreenReader.speak(this.speak_options);
+  }
+  setSpeakValue(value: string){
+    this.speak_options.value = value;
   }
 }
