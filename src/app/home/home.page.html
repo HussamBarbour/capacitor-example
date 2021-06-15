@@ -6,14 +6,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true"  class="ion-text-center ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Capacitor Example</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <ion-button (click)="goTo('/accessibility')" color="primary">Accessibility</ion-button>
+    <ion-button expand="block" (click)="goTo('/accessibility')" color="primary">Accessibility</ion-button>
+    <ion-button expand="block" (click)="goTo('/app')" color="primary">App</ion-button>
   </div>
 </ion-content>

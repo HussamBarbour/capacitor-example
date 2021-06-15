@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'accessibility',
     loadChildren: () => import('./accessibility/accessibility.module').then( m => m.AccessibilityPageModule)
   },
+  {
+    path: 'app',
+    loadChildren: () => import('./app/app.module').then( m => m.AppPageModule)
+  },
 ];
 
 @NgModule({

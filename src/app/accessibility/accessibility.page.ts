@@ -4,6 +4,7 @@ import { Plugins } from '@capacitor/core';
 import { Platform,NavController } from '@ionic/angular';
 
 const { Accessibility, Modals } = Plugins;
+import { ScreenReader } from '@capacitor/screen-reader';
 
 @Component({
   selector: 'app-accessibility',
@@ -21,18 +22,15 @@ export class AccessibilityPage implements OnInit {
   }
   async isVoiceOverEnabled() {
     if (this.platform.is('capacitor')){
-      const vo = await Accessibility.isScreenReaderEnabled();
-      this.status = vo.value;
+        const { value } = await ScreenReader.isEnabled();
+        alert('Voice over enabled? ' + value);
     } else {
       alert('Feature not available in your platform')
     }
   }
   async speak() {
-    const value = await Modals.prompt({
-      title: "Value to speak",
-      message: "Enter the value to speak"
-    });
 
-    Accessibility.speak({value: value.value});
+
+    await ScreenReader.speak({ value: 'lulu ' });
   }
 }
