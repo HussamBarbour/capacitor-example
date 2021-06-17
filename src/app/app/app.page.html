@@ -8,5 +8,43 @@
 </ion-header>
 
 <ion-content>
+  <ion-list *ngIf="info">
+    <ion-list-header>
+      App Info
+    </ion-list-header>
+
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>name</ion-label>
+      </ion-item-divider>
+
+      <ion-item lines="none">
+        <ion-label>{{info.name}}</ion-label>
+      </ion-item>
+      <ion-item-divider>
+        <ion-label>build</ion-label>
+      </ion-item-divider>
+
+      <ion-item-divider>
+        <ion-label>id</ion-label>
+      </ion-item-divider>
+
+      <ion-item lines="none">
+        <ion-label>{{info.id}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{info.build}}</ion-label>
+      </ion-item>
+      <ion-item-divider>
+        <ion-label>version</ion-label>
+      </ion-item-divider>
+
+      <ion-item lines="none">
+        <ion-label>{{info.version}}</ion-label>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+  <ion-button expand="block" (click)="exitApp()" color="primary">Exit App</ion-button>
 
 </ion-content>

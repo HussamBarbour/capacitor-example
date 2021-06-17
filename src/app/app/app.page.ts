@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { App } from '@capacitor/app';
+import { App,AppInfo } from '@capacitor/app';
 
 @Component({
   selector: 'app-app',
@@ -7,21 +7,20 @@ import { App } from '@capacitor/app';
   styleUrls: ['./app.page.scss'],
 })
 export class AppPage implements OnInit {
-
+  info : AppInfo;
   constructor() { }
 
   ngOnInit() {
-    App.addListener('appStateChange', ({ isActive }) => {
-      console.log('App state changed. Is active?', isActive);
-    });
-    this.test();
+    this.getAppInfo();
 
   }
 
-  async test(){
-    var ret = await App.getLaunchUrl();
-    if(ret && ret.url) {
-      console.log('App opened with URL: ' + ret.url);
-    }
+
+
+  async getAppInfo(){
+    this.info = await App.getInfo();
+  }
+  exitApp(){
+    App.exitApp();
   }
 }
