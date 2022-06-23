@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'app',
     loadChildren: () => import('./app/app.module').then( m => m.AppPageModule)
   },
+  {
+    path: 'toast',
+    loadChildren: () => import('./toast/toast.module').then( m => m.ToastPageModule)
+  },
 ];
 
 @NgModule({

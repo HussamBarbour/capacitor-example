@@ -11,6 +11,7 @@ def capacitor_pods
   pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
   pod 'CapacitorApp', :path => '../../node_modules/@capacitor/app'
   pod 'CapacitorScreenReader', :path => '../../node_modules/@capacitor/screen-reader'
+  pod 'CapacitorToast', :path => '../../node_modules/@capacitor/toast'
 end
 
 target 'App' do

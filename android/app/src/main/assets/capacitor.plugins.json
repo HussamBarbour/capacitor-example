@@ -6,5 +6,9 @@
 	{
 		"pkg": "@capacitor/screen-reader",
 		"classpath": "com.capacitorjs.plugins.screenreader.ScreenReaderPlugin"
+	},
+	{
+		"pkg": "@capacitor/toast",
+		"classpath": "com.capacitorjs.plugins.toast.ToastPlugin"
 	}
 ]

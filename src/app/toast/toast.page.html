@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>toast</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <ion-list>
+    <ion-item>
+      <ion-label>Text</ion-label>
+      <ion-input [(ngModel)]="options.text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select interface="popover" [(ngModel)]="options.duration" placeholder="Select duration">
+        <ion-select-option value="short">short</ion-select-option>
+        <ion-select-option value="long">long</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select interface="popover" [(ngModel)]="options.position" placeholder="Select position">
+        <ion-select-option value="bottom">bottom</ion-select-option>
+        <ion-select-option value="center">center</ion-select-option>
+        <ion-select-option value="top">top</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" (click)="show()" color="primary">Show</ion-button>
+</ion-content>
