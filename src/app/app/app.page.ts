@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { App,AppInfo } from '@capacitor/app';
+import { Platform } from '@ionic/angular';
+import { App,AppInfo, AppState, AppLaunchUrl } from '@capacitor/app';
 
 @Component({
   selector: 'app-app',
@@ -8,19 +9,38 @@ import { App,AppInfo } from '@capacitor/app';
 })
 export class AppPage implements OnInit {
   info : AppInfo;
-  constructor() { }
+  constructor(public platform: Platform) { }
 
   ngOnInit() {
     this.getAppInfo();
-
   }
 
-
-
   async getAppInfo(){
-    this.info = await App.getInfo();
+    if (this.platform.is('hybrid')){
+      this.info = await App.getInfo();
+    }
+  }
+
+  getState(){
+    App.getState().then((res: AppState)=>{
+      alert(JSON.stringify(res));
+    });
   }
   exitApp(){
     App.exitApp();
+  }
+
+  getLaunchUrl(){
+    App.getLaunchUrl().then((res: AppLaunchUrl)=>{
+      if (res){
+        alert(res.url);
+      } else {
+        alert(JSON.stringify(res));
+      }
+    });
+  }
+
+  minimizeApp(){
+    App.minimizeApp();
   }
 }

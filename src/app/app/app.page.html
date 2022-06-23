@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-list *ngIf="info">
     <ion-list-header>
       App Info
@@ -45,6 +45,11 @@
       </ion-item>
     </ion-item-group>
   </ion-list>
-  <ion-button expand="block" (click)="exitApp()" color="primary">Exit App</ion-button>
-
+  <ion-text color="danger" *ngIf="!platform.is('hybrid')">
+    <h4 >App Info does not work on the browser</h4>
+  </ion-text>
+  <ion-button expand="block" (click)="getLaunchUrl()" color="primary">Get Launch Url</ion-button>
+  <ion-button expand="block" (click)="getState()" color="primary">Get State</ion-button>
+  <ion-button *ngIf="platform.is('android')" expand="block" (click)="minimizeApp()" color="primary">Minimize App</ion-button>
+  <ion-button *ngIf="platform.is('android')" expand="block" (click)="exitApp()" color="primary">Exit App</ion-button>
 </ion-content>

@@ -1,5 +1,5 @@
 {
-	"appId": "io.ionic.starter",
+	"appId": "com.nafeza.capacitorExample",
 	"appName": "capacitor-example",
 	"bundledWebRuntime": false,
 	"npmClient": "npm",
