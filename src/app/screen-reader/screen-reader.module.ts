@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AccessibilityPageRoutingModule } from './accessibility-routing.module';
+import { ScreenReaderPageRoutingModule } from './screen-reader-routing.module';
 
-import { AccessibilityPage } from './accessibility.page';
+import { ScreenReaderPage } from './screen-reader.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AccessibilityPageRoutingModule
+    ScreenReaderPageRoutingModule
   ],
-  declarations: [AccessibilityPage]
+  declarations: [ScreenReaderPage]
 })
-export class AccessibilityPageModule {}
+export class ScreenReaderPageModule {}

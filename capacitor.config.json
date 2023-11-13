@@ -1,7 +1,6 @@
 {
   "appId": "com.nafeza.capacitorExample",
   "appName": "capacitor-example",
-  "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {

@@ -12,16 +12,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'accessibility',
-    loadChildren: () => import('./accessibility/accessibility.module').then( m => m.AccessibilityPageModule)
-  },
-  {
     path: 'app',
     loadChildren: () => import('./app/app.module').then( m => m.AppPageModule)
   },
   {
     path: 'toast',
     loadChildren: () => import('./toast/toast.module').then( m => m.ToastPageModule)
+  },
+  {
+    path: 'screen-reader',
+    loadChildren: () => import('./screen-reader/screen-reader.module').then( m => m.ScreenReaderPageModule)
   },
 ];
 

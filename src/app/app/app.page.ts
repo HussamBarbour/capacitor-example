@@ -9,12 +9,35 @@ import { App,AppInfo, AppState, AppLaunchUrl } from '@capacitor/app';
 })
 export class AppPage implements OnInit {
   info : AppInfo;
-  constructor(public platform: Platform) { }
+  constructor(public platform: Platform) {
+    App.addListener('appStateChange', ({ isActive }) => {
+      alert('App state changed. Is active? ' + isActive);
+    });
+
+    App.addListener('pause', () => {
+      alert('App paused');
+    });
+    App.addListener('pause', () => {
+      alert('App resume');
+    });
+
+    App.addListener('appUrlOpen', data => {
+      alert('App opened with URL: ' + data.url);
+    });
+    
+    App.addListener('appRestoredResult', data => {
+      alert('App opened with URL: ' + JSON.stringify(data));
+    });
+
+  }
 
   ngOnInit() {
     this.getAppInfo();
   }
 
+  ionViewDidLeave(){
+    App.removeAllListeners();
+  }
   async getAppInfo(){
     if (this.platform.is('hybrid')){
       this.info = await App.getInfo();
@@ -27,7 +50,9 @@ export class AppPage implements OnInit {
     });
   }
   exitApp(){
-    App.exitApp();
+    App.exitApp().catch((error)=>{
+      alert(error);
+    });
   }
 
   getLaunchUrl(){
@@ -41,6 +66,8 @@ export class AppPage implements OnInit {
   }
 
   minimizeApp(){
-    App.minimizeApp();
+    App.minimizeApp().catch((error)=>{
+      alert(error);
+    });;
   }
 }

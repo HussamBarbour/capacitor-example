@@ -1,7 +1,6 @@
 {
 	"appId": "com.nafeza.capacitorExample",
 	"appName": "capacitor-example",
-	"bundledWebRuntime": false,
 	"npmClient": "npm",
 	"webDir": "www",
 	"plugins": {
@@ -11,6 +10,6 @@
 	},
 	"cordova": {},
 	"server": {
-		"url": "http://10.22.197.31:8101"
+		"url": "http://192.168.1.122:8100"
 	}
 }
